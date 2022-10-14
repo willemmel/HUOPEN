@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Willem Melenhorst</title>
+    <link rel="icon" type="image" href="css/Portrait-modified.png" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <a href="#top">
+        <img id="img3" class="hide" src="/css/Portrait-modified.png" />
+      </a>
+      <ul id="nav" class="ul hide">
+        <li>
+          <a href="#about">About Me</a>
+        </li>
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+        <li>
+          <a href="#contact">Contact Me</a>
+        </li>
+      </ul>
+      <div id="collapsible" class="collapsible">Menu</div>
+      <div class="content">
+        <ul class="dropdownnav">
+          <li>
+            <a href="#about">About Me</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+          <li>
+            <a href="#contact">Contact Me</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <section id="home">
+      <div class="frame">
+        <div class="container">
+          <div class="item-1 item">
+            <img id="img1" src="css/portrait.jpg" />
+          </div>
+          <div class="item-2 item">
+            <h1>Willem</h1>
+            <h2>Melenhorst</h2>
+            <h3>Student Open-ICT</h3>
+            <ul id="nav2" class="ul2 show">
+              <li>
+                <a href="#about">About Me</a>
+              </li>
+              <li>
+                <a href="#projects">Projects</a>
+              </li>
+              <li>
+                <a href="#contact">Contact Me</a>
+              </li>
+            </ul>
+          </div>
+          <div class="item-3 item">
+            <img id="img2" src="css/portrait.jpg" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <hr class="break" />
+      <div class="frame2">
+        <div class="container2">
+          <div class="item-1 item2">
+            <div class="h-about">
+              <h1>About me</h1>
+            </div>
+            <div class="interests">
+              <p class="p1">My interests</p>
+              <div class="swiper swiper1">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="title">Bouldering</div>
+                    <img src="/css/bouldering.jpeg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="title">Hi-Fi</div>
+                    <img src="/css/hifi.jpeg" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="/css/zeilen.jpeg" />
+                    <div class="title">Sailing</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item-2 item2">
+            <div class="experience">
+              <p class="p2">My skills</p>
+            </div>
+            <div class="qualities">
+              <p class="p2">My qualities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <hr class="break" />
+      <div class="frame2">
+        <div class="container">
+          <div class="h-projects">
+            <h1>My projects</h1>
+          </div>
+          <div class="swiper swiper2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide slide2">
+                <div class="swiper-slide-content">
+                  <p>Personal Website</p>
+                  <a href="#projects" onclick="play()">More info</a>
+                </div>
+              </div>
+              <div class="swiper-slide slide2">Slide 2</div>
+              <div class="swiper-slide slide2">Slide 3</div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <hr class="break" />
+      <div class="frame2">
+        <div class="container"></div>
+      </div>
+      <hr class="break" />
+    </section>
+
+    <audio id="audio" src="/css/sfx.mp3"></audio>
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+      // ---------------button hide on scroll----------- //
+      myID = document.getElementById("nav");
+
+      var myScrollFunc = function () {
+        var y = window.scrollY;
+        if (y >= 550) {
+          myID.className = "ul show";
+        } else {
+          myID.className = "ul hide";
+        }
+      };
+
+      myIDD = document.getElementById("img3");
+
+      var myScrollFunc2 = function () {
+        var y = window.scrollY;
+        if (y >= 550) {
+          myIDD.className = "show";
+        } else {
+          myIDD.className = "hide";
+        }
+      };
+      window.addEventListener("scroll", myScrollFunc);
+      window.addEventListener("scroll", myScrollFunc2);
+
+      /*------------Slideshow-----------------*/
+
+      const swiper = new Swiper(".swiper1", {
+        slidesPerView: 1,
+        loop: true,
+
+        mousewheel: {
+          invert: false,
+        },
+
+        autoplay: {
+          delay: 4000,
+          pauseOnMouseEnter: true,
+        },
+
+        grabCursor: true,
+      });
+
+      function myFunction(x) {
+        if (x.matches) {
+          const swiper = new Swiper(".swiper2", {
+            slidesPerView: 1,
+            loop: true,
+
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+
+            mousewheel: {
+              invert: false,
+            },
+
+            autoplay: {
+              delay: 4000,
+              pauseOnMouseEnter: true,
+            },
+          });
+        } else {
+          const swiper = new Swiper(".swiper2", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+
+            mousewheel: {
+              invert: false,
+            },
+
+            autoplay: {
+              delay: 4000,
+              pauseOnMouseEnter: true,
+            },
+
+            grabCursor: true,
+          });
+        }
+      }
+
+      var x = window.matchMedia("(max-width: 600px)");
+      myFunction(x);
+      x.addListener(myFunction);
+
+      function play() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+    </script>
+  </body>
+</html>
